@@ -1,22 +1,22 @@
-package com.example.apiauthexercise.retrofit
+package com.example.apiauthexercise.network
 
+import com.example.apiauthexercise.model.FoodData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 
-object FoodRepository {
+object FoodRepo {
 
-    var foodEndPoint: FoodEndPoint? = null
+    var foodService: FoodService? = null
 
     suspend fun getFood(): Response<FoodData>? {
-        if (foodEndPoint == null) {
-            foodEndPoint = createRetrofitInstance().create(FoodEndPoint::class.java)
+        if (foodService == null) {
+            foodService = createRetrofitInstance().create(FoodService::class.java)
         }
-        return foodEndPoint?.getFood(limit = 10)
+        return foodService?.getFood(limit = 10)
     }
 
     private fun createRetrofitInstance(): Retrofit {

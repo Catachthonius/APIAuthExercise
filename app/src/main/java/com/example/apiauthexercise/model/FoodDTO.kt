@@ -1,4 +1,4 @@
-package com.example.apiauthexercise.retrofit
+package com.example.apiauthexercise.model
 import com.google.gson.annotations.SerializedName
 
 

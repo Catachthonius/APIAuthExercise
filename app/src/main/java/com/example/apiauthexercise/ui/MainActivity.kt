@@ -1,4 +1,4 @@
-package com.example.apiauthexercise
+package com.example.apiauthexercise.ui
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar

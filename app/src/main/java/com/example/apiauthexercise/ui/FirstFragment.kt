@@ -1,4 +1,4 @@
-package com.example.apiauthexercise
+package com.example.apiauthexercise.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.apiauthexercise.R
 import com.example.apiauthexercise.databinding.FragmentFirstBinding
-import com.example.apiauthexercise.retrofit.FoodViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

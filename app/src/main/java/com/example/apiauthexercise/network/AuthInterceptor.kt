@@ -1,4 +1,4 @@
-package com.example.apiauthexercise.retrofit
+package com.example.apiauthexercise.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -13,6 +13,5 @@ class AuthInterceptor: Interceptor {
                 .build()
 
             return chain.proceed(newRequest)
-
         }
     }
