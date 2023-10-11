@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.apiauthexercise.MyApplication
 import com.example.apiauthexercise.R
 import com.example.apiauthexercise.databinding.FragmentFirstBinding
 
@@ -15,7 +16,7 @@ import com.example.apiauthexercise.databinding.FragmentFirstBinding
  */
 class FirstFragment : Fragment() {
 
-    private val foodViewModel: FoodViewModel by viewModels()
+    private lateinit var foodViewModel: FoodViewModel
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -36,16 +37,13 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+        foodViewModel = (requireActivity().application as MyApplication).viewModelFactory.create(FoodViewModel::class.java)
+
+        observeLiveData()
 
         binding.submitButton.setOnClickListener {
             foodViewModel.getFood()
         }
-
-        observeLiveData()
-
     }
 
     fun observeLiveData(){
